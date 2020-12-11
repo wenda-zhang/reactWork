@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 
+    react和vue的对比
+    
+    vue实现组件化：
+    template 结构
+    script   行为
+    style    样式
+
+    react如何实现组件化：
+    react中有组件化的概念，但是没有像vue这样的组件模板文件，react中，一切都是以js来表现的，所以js要学的比较好
+
+    react核心概念：
+    虚拟DOM结构
+    DOM的本质是什么：浏览器中的概念，用js对象来表示页面上的元素，并提供了操作DOM对象的API
+    什么四react中的虚拟DOM：是框架中的概念，是程序员用js来模拟页面上的DOM和DOM嵌套
+    为什么要实现虚拟DOM：为了实现页面中，DOM元素的高效更新
+
+    虚拟dom的概念：
+    模拟新旧两个dom树，用js对象来模拟页面上的dom嵌套关系
+
+    Diff算法：
+    tree diff: 新旧两棵dom树，逐层对比的过程，就是tree diff，当整棵dom逐层对比完毕，则
+      所需要被按需更新的元素，必然能够找到;
+    component diff: 在进行treediff的时候，每一层中，组件级别的对比，叫做component diff;
+      如果对比前后，组件的类型相同，则暂时认为此组件不要要更新
+      如果对比前后，组件类型不相同，则需要溢出旧组件，创建新组件，并追加到页面上；
+    element diff: 在进行组件对比的视乎，如果两个组件类型相同，则需要进行元素级别的对比，这叫做elementdiff；
+
+    
+
+    element diff: 
+
+  -->
+  
+</body>
+</html>
