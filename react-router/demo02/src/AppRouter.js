@@ -19,7 +19,7 @@ function AppRouter() {
 
                 <div className="rightMain">
                     <Route path="/" exact component={Index}></Route>
-                    <Route path="/video" exact component={Video}></Route>
+                    <Route path="/video" component={Video}></Route>
                 </div>
             </div>
         </Router>

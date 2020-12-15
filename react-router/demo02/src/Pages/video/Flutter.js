@@ -2,7 +2,7 @@ import React from 'react';
 
 function Flutterpage() {
     return (
-        <h2>我是react</h2>
+        <h2>我是flutter</h2>
     )
 }
 
