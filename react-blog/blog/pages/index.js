@@ -2,10 +2,11 @@ import Head from 'next/head'
 import React, {useState} from 'react'
 import Link from 'next/head'
 import '../styles/pages/comm.css'
-import '../styles/pages/index.css'
 import { Row, Col, List, Icon } from 'antd'
 import Header from '../components/Header'
 import Author from '../components/Author'
+import Advert from '../components/Advert'
+import Footer from '../components/Footer'
 
 
 export default function Home() {
@@ -48,8 +49,12 @@ export default function Home() {
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={14} lg={8} xl={6} >
           <Author/>
+          <Advert/>
         </Col>
       </Row>
+
+      <Footer/>
+
     </div>
   )
 }
