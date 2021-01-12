@@ -6,7 +6,7 @@ export default function Author() {
         <div className="author-div comm-box">
 
             <div>
-                <Avatar size={130} src="http://i1.hoopchina.com.cn/hupuapp/kanqiu/202101/18000fd94c824a879fbd3167d23077cf.jpg" />
+                <Avatar size={130} src="http://att.gamefy.cn/files/201909/att156972170682511.jpg" />
             </div>
 
             <div className="author-introduction">

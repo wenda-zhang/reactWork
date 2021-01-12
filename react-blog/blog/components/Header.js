@@ -23,10 +23,13 @@ const Header = () => {
     }, []);
 
     const handleClick = (e) => {
-        if (e.key == 0) {
+        let key = e.key;
+        key = key.charAt(key.length - 1);
+        if (key == 0) {
             Router.push('/')
         } else {
-            Router.push('/list?id=' + e.key)
+            console.log(key);
+            Router.push('/list?id=' + key)
         }
     }
 
