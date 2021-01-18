@@ -66,7 +66,8 @@ export default function AdminIndex(props) {
                         <div>
                             <Route path="/index/" exact component={AddArticle} />
                             <Route path="/index/add/" exact component={AddArticle} />
-                            <Route path="/index/list/" component={ArticleList} />
+                            <Route path="/index/list/" exact component={ArticleList} />
+                            <Route path="/index/add/:id" exact component={AddArticle} />
                         </div>
                         {/* JSda的博客管理系统 */}
                     </div>

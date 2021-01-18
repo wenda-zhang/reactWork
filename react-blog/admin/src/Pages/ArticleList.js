@@ -8,13 +8,13 @@ const { confirm } = Modal;
 
 export default function ArticleList(props) {
 
-    const [list, setList] = useState([])
+    const [list, setList] = useState([]);
 
     useEffect(() => {
         getList();
     }, [])
 
-    const getList=() => {
+    const getList=() => { //得到文章列表的方法
         axios({
             method: 'get',
             url: servicePath.getArticleList,
@@ -25,6 +25,30 @@ export default function ArticleList(props) {
                 setList(res.data.list);
             }
         )
+    };
+
+    //删除文章的方法
+    const delArticle = (id) => {
+        confirm({
+            title: '确定要删除这篇博客文章吗？',
+            content: '如果点击ok，文章将永远被删除！',
+            onOk() {
+                axios(servicePath.delArticle+id,{withCredentials:true}).then(
+                    res=> {
+                        message.success('文章删除成功！');
+                        getList();
+                    }
+                )
+            },
+            onCancel() {
+                message.error('文章没有任何变化')
+            },
+        })
+    };
+
+    //修改文章跳转方法
+    const updateArticle = (id, checked)=> {
+        props.history.push('/index/add/'+id)
     }
 
     return (
@@ -67,9 +91,10 @@ export default function ArticleList(props) {
                                 {item.view_count}
                             </Col>
                             <Col span={4}>
-                                <Button type="primary">修改</Button>
+                                <Button type="primary" onClick={()=>updateArticle(item.id)}>修改</Button>
                                 &nbsp;
-                                <Button>删除</Button>
+                                <Button onClick={()=>{delArticle(item.id)}}>删除</Button>
+                                {/* <Button onClick={delArticle}>删除</Button> */}
                             </Col>
                         </Row>
                     </List.Item>

@@ -7,5 +7,8 @@ module.exports = app=>{
     router.post('/admin/addAtricle', controller.admin.main.addAtricle);
     router.post('/admin/updateArticle', controller.admin.main.updateArticle);
     router.get('/admin/getArticleList', controller.admin.main.getArticleList);
+    router.get('/admin/delArticle/:id', controller.admin.main.delArticle);
+    router.get('/admin/getArticleById/:id', controller.admin.main.getArticleById);
+
 
 }
