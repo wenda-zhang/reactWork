@@ -20,6 +20,9 @@ export default function AddArticle(props) {
     const [updateDate,setUpdateDate] = useState() //修改日志的日期
     const [typeInfo ,setTypeInfo] = useState([]) // 文章类别信息
     const [selectedType,setSelectType] = useState('请选择类型') //选择的文章类别
+    const [selectTypeList] = useState({
+
+    })
 
     useEffect(()=>{
         getTypeInfo();//获得文章类别信息
@@ -56,6 +59,7 @@ export default function AddArticle(props) {
     }
 
     const selectTypeHandler = (e) => {
+        console.log(e);
         setSelectType(e);
     }
 
@@ -76,7 +80,6 @@ export default function AddArticle(props) {
             message.error('发布日期不能为空');
             return false;
         }
-        console.log(selectedType);
         let dataProps = {};
         dataProps.type_id = selectedType;
         dataProps.title = articleTitle;
@@ -96,6 +99,7 @@ export default function AddArticle(props) {
                     setArticleId(res.data.insertId);
                     if(res.data.isSuccess) {
                         message.success('文章保存成功');
+                        props.history.push('/index/list');
                     } else {
                         message.error('文章保存失败');
                     }
@@ -172,7 +176,7 @@ export default function AddArticle(props) {
                         </Col>
                         <Col span={4}>
                             &nbsp;
-                            <Select defaultValue={selectedType} size="large" onChange={selectTypeHandler}>
+                            <Select defaultValue={selectedType} size="large" onChange={(e)=>{selectTypeHandler(parseInt(e)+1)}}>
                                 {/* <Option value="1">视频教程</Option> */}
                                 {typeInfo.map((item, index) => {
                                     return (
