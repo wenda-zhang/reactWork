@@ -1,16 +1,3 @@
-// import Head from 'next/head'
-// import React, {useState} from 'react'
-// import Link from 'next/head'
-// import '../styles/pages/comm.css'
-// import { Row, Col, List, Icon } from 'antd'
-// import axios from 'axios'
-// import Header from '../components/Header'
-// import Author from '../components/Author'
-// import Advert from '../components/Advert'
-// import Footer from '../components/Footer'
-
-// import '../static/style/pages/index.css'
-
 import React, { useState } from 'react'
 import { Row, Col, List, Icon } from 'antd'
 import axios from 'axios'

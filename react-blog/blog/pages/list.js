@@ -23,15 +23,24 @@ export default function MyList(list) {
   // )
 
   const [myList, setMylist] = useState(list.data)
+  const [mainTitle, setMyTitle] = useState('视频教程')
   
+  console.log(list);
+
   useEffect(() => {
-    setMylist(list.data)
+    setMyTitle(list.data[0].typeName);
+    setMylist(list.data);
+
+    if(list.data[0].typeName == '留言板') {
+      console.log('这儿留言板！');
+    }
+
   })
 
   return (
     <div className='main'>
       <Head>
-        <title>My App</title>
+        <title>js达的博客</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -42,7 +51,7 @@ export default function MyList(list) {
           <div className="bread-div">
             <Breadcrumb>
               <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-              <Breadcrumb.Item>视频教程</Breadcrumb.Item>
+              <Breadcrumb.Item>{mainTitle}</Breadcrumb.Item>
             </Breadcrumb>
           </div>
           <List 
@@ -80,8 +89,14 @@ export default function MyList(list) {
 
 MyList.getInitialProps = async (context)=> {
   let id = context.query.id;
+  let url;
+  if(id < 4) {
+    url = servicePath.getListById + id;
+  } else {
+    url = servicePath.getWordList;
+  }
   const promise = new Promise((resolve)=> {
-    axios(servicePath.getListById + id).then(
+    axios(url).then(
       (res)=>{
         resolve(res.data);
       }

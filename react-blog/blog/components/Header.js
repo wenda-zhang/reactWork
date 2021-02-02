@@ -44,7 +44,7 @@ const Header = () => {
                         专注前端100年
             </span>
                 </Col>
-                <Col xs={0} sm={0} md={14} lg={8} xl={6}>
+                <Col xs={0} sm={0} md={14} lg={10} xl={10}>
                 <Menu mode="horizontal" onClick={handleClick}>
                 <Menu.Item key="0">
                     首页
@@ -52,7 +52,7 @@ const Header = () => {
                 {
                     navArray.map((item) => {
                         return (
-                            <Menu.Item key={item.id}>
+                            <Menu.Item key={item.orderNum}>
                                 {item.typeName}
                             </Menu.Item>
                         )
